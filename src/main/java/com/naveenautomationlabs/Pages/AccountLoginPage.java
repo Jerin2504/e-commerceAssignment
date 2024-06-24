@@ -21,6 +21,9 @@ public class AccountLoginPage extends TestBase {
 	@FindBy(xpath = "//input[@value='Login']")
 	WebElement loginBtn;
 	
+	@FindBy(css = "div.alert")
+	WebElement warningMessage;
+	
 	private void enterEmail(String email) {
 		emailField.sendKeys(email);
 	}
@@ -31,6 +34,10 @@ public class AccountLoginPage extends TestBase {
 	
 	private void clickLoginBtn() {
 		loginBtn.click();
+	}
+	
+	public String getWarningMessage() {
+		return warningMessage.getText().trim();
 	}
 	
 	public MyAccountPage loginToMyAccount(String email, String pwd) {

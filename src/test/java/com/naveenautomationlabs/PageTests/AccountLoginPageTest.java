@@ -21,13 +21,13 @@ public class AccountLoginPageTest extends TestBase{
 	@Test
 	public void validateLoginWithValidCredentials() {
 		loginPage.loginToMyAccount("mail@domain.com", "abc123");
-		Assert.assertEquals("My Account", driver.getTitle());
+		Assert.assertEquals(driver.getTitle(), "My Account");
 	}
 	
 	@Test
 	public void validateLoginWithInvalidCredentials() {
-		loginPage.loginToMyAccount("invalidmail@domain.com", "abc123");
-		Assert.assertEquals("My Account", driver.getTitle());
+		loginPage.loginToMyAccount("invalidmail1@domain.com", "abc123");
+		Assert.assertEquals(loginPage.getWarningMessage(), "Warning: No match for E-Mail Address and/or Password.");
 	}
 	
 	@AfterMethod
